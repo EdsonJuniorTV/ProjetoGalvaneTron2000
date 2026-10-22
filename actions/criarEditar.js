@@ -2,9 +2,9 @@ import { View, Text, TextInput, Button, Alert } from 'react-native'
 import { useState } from 'react'
 
 function CriarEditar({ tarefaInicial, onSalvar }) {
-    const [titulo, setTitulo] = useState(tarefaInicial?.titulo ?? '')
-    const [descricao, setDescricao] = useState(tarefaInicial?.descricao ?? '')
-    const [data, setData] = useState(tarefaInicial?.data_conclusao ?? '')
+    const [titulo, setTitulo] = useState(tarefaInicial?.Titulo ?? '')
+    const [descricao, setDescricao] = useState(tarefaInicial?.Descricao ?? '')
+    const [data, setData] = useState(tarefaInicial?.DataConclusao ?? '')
 
     function aoClicarSalvar() {
         if (!titulo.trim()) {

@@ -1,7 +1,7 @@
 import { supabase } from "../connection/supabase"
 
-const TABELA = "Tabela"          // troque pelo nome real da sua tabela
-const NTFY_TOPICO = "Etec"  // troque pelo seu tópico
+const TABELA = "Tabela"
+const NTFY_TOPICO = "Etec"
 
 async function enviarNotificacao(titulo, dataConclusao) {
     await fetch("https://ntfy.sh/", {
@@ -27,19 +27,19 @@ export async function pegarLista() {
 export async function novaTarefa({ titulo, descricao, data }) {
     const { data: criada, error } = await supabase
         .from(TABELA)
-        .insert({ titulo, descricao, data_conclusao: data })
+        .insert({ Titulo: titulo, Descricao: descricao, DataConclusao: data })
         .select()
         .single()
 
     if (error) throw error
-    await enviarNotificacao(criada.titulo, criada.data_conclusao)
+    await enviarNotificacao(criada.Titulo, criada.DataConclusao)
     return criada
 }
 
 export async function mudarTarefa(id, { titulo, descricao, data }) {
     const { data: atualizada, error } = await supabase
         .from(TABELA)
-        .update({ titulo, descricao, data_conclusao: data })
+        .update({ Titulo: titulo, Descricao: descricao, DataConclusao: data })
         .eq("id", id)
         .select()
         .single()

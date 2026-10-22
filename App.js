@@ -50,7 +50,7 @@ export default function App() {
                 keyExtractor={t => String(t.id)}
                 renderItem={({ item }) => (
                     <View>
-                        <Text>{item.titulo} — {item.data_conclusao}</Text>
+                        <Text>{item.Titulo} — {item.DataConclusao}</Text>
                         <Button title="Editar" onPress={() => setEditando(item)} />
                         <Button title="Apagar" onPress={() => apagar(item.id)} />
                     </View>
